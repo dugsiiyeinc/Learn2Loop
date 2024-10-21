@@ -1,0 +1,143 @@
+
+/* Importing Font Family */
+/* Poppins */
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+/* INter */
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_Bold.ttf")format("truetype");
+font-weight: 700;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_ExtraBold.ttf")format("truetype");
+font-weight: 800;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_Medium.ttf")format("truetype");
+font-weight: 400;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_SemiBold.ttf")format("truetype");
+font-weight: 600;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_ExtraLight.ttf")format("truetype");
+font-weight: 300;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'inter','poppins',sans-serif;
+}
+/* Color Root */
+:root
+{
+    --Pcolor:#A41045;
+    --Scolor:#18457C;
+    --Bgcolor:#0A0C10;
+    --Tcolor:#D8D8D8;
+    --Bgshape:url(../images/bgshape.png);
+}
+/* Body */
+body
+{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--Bgcolor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+}
+
+.section
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: var(--Bgshape);
+    background-size: cover;
+    background-position:center;
+}
+
+.section .left
+{
+    width: 40%;
+}
+
+.w-title
+{
+    color: #fff;
+}
+.p-title
+{
+    color: var(--Pcolor);
+}
+.s-title
+{
+    color: var(--Scolor);
+}
+.title-lg
+{
+    font-size: 50px;
+}
+.title-md
+{
+    font-size: 40px;
+}
+.title-sm
+{
+    font-size: 30px;
+}
+.text
+{
+    color: var(--Tcolor);
+}
+
+.thin
+{
+    font-weight: 300;
+}
+
+/* Buttons */
+.btn
+{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+}
+
+.btn .btn-white
+{
+    background-color: rgba(255, 255, 255, 0.40);
+    color: var(--Scolor);
+}
