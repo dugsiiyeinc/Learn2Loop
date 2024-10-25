@@ -116,7 +116,7 @@ body
 }
 .title-sm
 {
-    font-size: 30px;
+    font-size: 20px;
 }
 .text
 {
@@ -140,4 +140,21 @@ body
 {
     background-color: rgba(255, 255, 255, 0.40);
     color: var(--Scolor);
+}
+
+.merror
+{
+    background-color: rgba(255,255,255,0.10);
+    backdrop-filter: blur(4px);
+}
+
+.shape
+{
+    padding: 40px;
+    border-radius: 20px;
+    width: 472px;
+    height: 524px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
