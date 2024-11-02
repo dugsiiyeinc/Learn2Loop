@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Notify.js Example</title>  
+        <style>#absoluteCenteredDiv{position: absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto;width:50%;height: 50%;text-align: center;}</style>
+        <!-- Include JS files from a CDN -->
+        <script src="https://cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.tutorialjinni.com/notify/0.4.2/notify.min.js"></script>
+    </head>
+    <body>
+        <div id="absoluteCenteredDiv">
+            <!-- HTML5 Select Tag -->
+        <p>
+            <h1 id="title">notify.js Demo</h1>
+        </p>
+        <p>
+            <input type="button" name="button" onclick="simpleNotify(this)" value="Simple Notification"/>
+            <input type="button" name="button" onclick="globalPositionsNotify()" value="Global Positions Notification"/>
+        </p> 
+        </div>
+        <script>
+            function simpleNotify(e){
+                $(e).notify("Simple Notify");
+            }
+            function globalPositionsNotify(){
+                $.notify("Bottom Left - Error",{position:"bottom left",className:"error"});
+                $.notify("Left",{position:"left",className:"info"});
+                $.notify("Right - Warning",{position:"right",className:"warn"});
+                $.notify("Top Left",{position:"top left",className:"info"});
+                $.notify("Top Center - Success",{position:"top center",className:"success"});
+                $.notify("Top Right",{position:"Top Right",className:"info"});
+                $.notify("Bottom Right",{position:"bottom right",className:"info"});
+                $.notify("Bottom Center",{position:"bottom center",className:"info"});
+            }
+        </script>
+        </div>
+    </body>
+</html>

@@ -264,6 +264,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
 }    
 
 .section .left
@@ -339,4 +340,53 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btn-back
+{
+    position: absolute;
+    top:20px;
+    left: 20px;
+}
+
+
+.p-10-20
+{
+    padding: 10px 20px;
+}
+
+.mx-10
+{
+    margin: 0px 10px;
+}
+.my-10
+{
+    margin: 10px 0px;
+}
+
+.d-flex
+{
+    display: flex;
+}
+
+.between
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.items-center
+{
+    display: flex;
+    align-items: center;
+}
+
+.w-fit
+{
+    width: 100%;
+}
+
+.p-15-20
+{
+    padding: 15px 20px;
 }

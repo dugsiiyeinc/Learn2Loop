@@ -7,12 +7,22 @@
     <!-- FontAwesome Cdn Link -->
     <link rel="stylesheet" href="plugins/fontAwesome/css/all.min.css" />
     <link rel="stylesheet" href="plugins/fontAwesome/css/fontawesome.css" />
+    <!-- Sweet Alert -->
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <!-- Include JS files from a CDN -->
+   <script src="https://cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+   <script src="https://cdn.tutorialjinni.com/notify/0.4.2/notify.min.js"></script>
     <!-- Custom Css Link -->
     <link rel="stylesheet" href="css/app.css" />
   </head>
   <body>
     <!-- First Section Of learn2loop App -->
-    <div style="opacity: 0; display: none; left: -200px;" class="section section1">
+    <div   class="section section1">
       <div class="left">
         <h1 class="title-lg w-title">
           <span class="thin">Welcome to the</span>
@@ -62,7 +72,7 @@
                 and a supportive learning community</p></div>
         </div>
       <div class="shape-footer">
-        <button class="btn merror">Next</button>
+        <button id="Next1" class="btn merror">Next</button>
         <div class="circles">
           <div class="active circle merror"></div>
           <div class="circle merror"></div>
@@ -75,7 +85,8 @@
     </div>
 <!-- Section One End Here -->
     <!-- Second Section Of learn2loop App -->
-    <div  class="section section2">
+    <div style="opacity: 0; display: none; left: -200px;"  class="section  section2">
+      <!-- <button class="btn merror btn-back">Back</button> -->
       <div class="left">
         <h1 class="title-lg w-title">
           <span class="thin">Welcome to the</span>
@@ -95,31 +106,31 @@
           <p class="disc text">Its Easy And Quick😜</p>
        <div class="form-group">
       <form id="RegisterForm">
-        <input class="btn merror" name="Fname" id="Fname" type="text" placeholder="Full Name">
-        <input class="btn merror" name="Email" id="Email" type="text" placeholder="Email Address">
+        <input class="btn merror" name="fullName" id="fullName" type="text" placeholder="Full Name">
+        <input class="btn merror" name="email" id="email" type="text" placeholder="Email Address">
         <label class="options-label">Select Your Level</label>
         <div class="options">
           <label class="option btn merror">
-            <input type="radio" id="level" name="level">&nbsp;
+            <input value="Beginner" type="radio" id="level" name="level">&nbsp;
             Beginner
           </label>
           <label class="option btn merror">
-            <input type="radio" id="level" name="level">&nbsp;
+            <input value="Intermediate" type="radio" id="level" name="level">&nbsp;
             Intermediate
           </label>
           <label class="option btn merror">
-            <input type="radio" id="level" name="level">&nbsp;
+            <input value="Advanced"  type="radio" id="level" name="level">&nbsp;
             Advanced
           </label>
         </div>
-      </form>
+
       <div class="shape-footer">
-        <button class="btn merror">Next</button>
+        <button id="Next2" type="button" class="btn merror">Next</button>
         <div class="circles">
           <div class="circle merror"></div>
           <div class="circle active merror"></div>
           <div class="circle merror"></div>
-        </div>
+        </div>      
         <p style="margin-top: 10px;" class="disc text">Already Have Account <a style="color: #fff; font-weight: bold;" href="#">Login Now</a></p>
       </div>
        </div>
@@ -127,6 +138,76 @@
       </div>
     </div>
 <!-- Section Two End Here -->
+    <!-- Thir Section Of learn2loop App -->
+    <div style="opacity: 0; display: none; left: -200px;" class="section section3">
+      <!-- <button class="btn merror btn-back">Back</button> -->
+      <div class="left">
+        <h1 class="title-lg w-title">
+          <span class="thin">Welcome to the</span>
+          <br />
+          Learn2Loop
+        </h1>
+        <p class="desc text">
+          Your journey to mastering coding starts here. At Learn2Loop, we
+          provide interactive lessons, hands-on projects,and real-time
+          challenges designed to help you loop through the learning process, one
+          code at a time.
+        </p>
+      </div>
+      <div class="right">
+        <div class="shape merror">
+          <h4 class="title-sm  w-title">What are you studying?</h4>
+          <p class="disc text">Explore coding topics tailored to your goals and interests
+            at Learn2Loop</p>
+       <div class="form-group">
+    
+        <label class="btn merror p-15-20 my-10 d-flex between items-center w-fit">
+          <div class="icon">
+            <i class="fab fa-html5"></i> 
+            Html 5</div>
+            <input value="Html 5" id="eduType" name="eduType" type="radio">
+         
+        </label>
+     
+        <label class="btn merror p-15-20 my-10 d-flex between items-center w-fit">
+          <div class="icon"> 
+            <i class="fab fa-css3"></i>
+            Css 3</div>
+            <input value="Css 3" id="eduType" name="eduType" type="radio">
+         
+        </label>
+     
+        <label class="btn merror p-15-20 my-10 d-flex between items-center w-fit">
+          <div class="icon">
+            <i class="fab fa-js"></i>
+            Java Script</div>
+            <input value="Java Script" id="eduType" name="eduType" type="radio">
+          
+        </label>
+        <label class="btn merror p-15-20 my-10 d-flex between items-center w-fit">
+          <div class="icon">
+            <i class="fab fa-php"></i>
+            Php </div>
+            <input value="Php" id="eduType" name="eduType" type="radio">
+         
+        </label>
+      <div class="shape-footer">
+        <button id="registerBtn" type="submit" class="btn merror">Next</button>
+        <div class="circles">
+          <div class="circle merror"></div>
+          <div class="circle  merror"></div>
+          <div class="circle active merror"></div>
+        </div>
+      </form>
+        <!-- <p style="margin-top: 10px;" class="disc text">Already Have Account <a style="color: #fff; font-weight: bold;" href="#">Login Now</a></p> -->
+      </div>
+       </div>
+        </div>
+      </div>
+    </div>
+<!-- Section Three End Here -->
+
+
     <!-- Custom Js Link -->
     <script src="js/app.js"></script>
   </body>
