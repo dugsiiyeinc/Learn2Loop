@@ -309,13 +309,13 @@ body
     flex-direction: column;
 }
 
-#RegisterForm input[type="text"],#RegisterForm input[type="email"]
+#RegisterForm input[type="text"],#RegisterForm input[type="email"],#RegisterForm input[type="password"]
 {
     margin: 10px 0px;
-    padding: 20px;
+    padding: 15px 20px;
     font-size: 20px;
 }
-#RegisterForm input[type="text"]::placeholder,#RegisterForm input[type="email"]::placeholder
+#RegisterForm input[type="text"]::placeholder,#RegisterForm input[type="email"]::placeholder,#RegisterForm input[type="password"]::placeholder
 {
     color: #fff;
     font-size: 20px;
@@ -389,4 +389,53 @@ body
 .p-15-20
 {
     padding: 15px 20px;
+}
+.p-20
+{
+    padding: 20px;
+}
+.p-30
+{
+    padding: 30px;
+}
+.text-center
+{
+    text-align: center;
+}
+.bg-white
+{
+    background-color: #fff;
+}
+.circle
+{
+    border-radius: 50%;
+}
+
+.j-center
+{
+    justify-content: center !important;
+}
+
+.round-10
+{
+    border-radius: 10px;
+}
+.round-20
+{
+    border-radius: 20px;
+}
+
+#password-input
+{
+    position: relative;
+}
+
+#password-input i
+{
+    position: absolute;
+    top: 37%;
+    right: 20px;
+    font-size: 20px;
+    z-index: 2;
+    cursor: pointer;
 }

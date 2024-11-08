@@ -1,3 +1,7 @@
+window.onload = function() {
+    localStorage.clear();
+};
+
 // Section One JS Code
 let Next1 = document.querySelector("#Next1");
 Next1.addEventListener("click", function (e) {
@@ -75,6 +79,7 @@ let registerForm = document.getElementById("RegisterForm");
 registerForm.addEventListener("submit",async (e)=>
     {
             e.preventDefault();
+            document.querySelector("#registerBtn").innerHTML="<img width='16px' src='images/load.gif' alt='search...'>";
             let formData = new FormData(registerForm);
             formData.append("action","Registration");
             formData.append("Registration","RegPass3344");
@@ -92,13 +97,13 @@ registerForm.addEventListener("submit",async (e)=>
             {
                 let Request = await fetch(registerApi,options);
                 let response = await Request.json();
-               document.querySelector("#registerBtn").innerHTML="<img width='16px' src='images/load.gif' alt='search...'>";
                setTimeout(()=>{
                if(response.status === "success")
                 {
                     console.log(response.message);
                 // Success Alert
-                $.notify(response.message, "success");
+                // $.notify(response.message, "success");
+                document.querySelector("#lastRight").innerHTML=response.message;
                 // Update Button Text
                 document.querySelector("#registerBtn").innerHTML="Next";
             //    swal.fire({
@@ -116,6 +121,18 @@ registerForm.addEventListener("submit",async (e)=>
                         $.notify( response.message,"error");
                              // Update Button Text
                 document.querySelector("#registerBtn").innerHTML="Next";
+                if(response.type="back_error")
+                {
+                    localStorage.removeItem("section2");
+                    let section2 = document.querySelector(".section2");
+                    section2.style.display = "flex";
+                    section2.style.left = "0px";
+                    section2.style.opacity = "1";
+                    let section3 = document.querySelector(".section3");
+                    section3.style.display = "none";
+                    section3.style.left = "100px";
+                    section3.style.opacity = "0";
+                }
                         // swal.fire({
                         //     title:"Error",
                         //     icon:"Error",
@@ -131,3 +148,7 @@ registerForm.addEventListener("submit",async (e)=>
                 console.error(error);
             }
     });
+
+
+
+   
