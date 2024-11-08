@@ -127,7 +127,7 @@ function Registration ($conn)
         // Form Validation
         if(empty($fullName)||empty($email)||empty($level)||empty($eduType))
         {
-            echo json_encode(['status'=>'error','message'=>'All Feilds Are Required!']);
+            echo json_encode(['status'=>'error','message'=>'All Fields Are Required!']);
         }
         elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo json_encode(['status'=>'error',"type"=>"back_error",'message'=>'Please enter a valid email address!']);
@@ -171,7 +171,7 @@ function checkToken($conn)
             // Password Form Validation
             if(empty($password)||empty($cPassword))
             {
-                echo json_encode(['status'=>'error','message'=>'Please Submit A Complate Form']);
+                echo json_encode(['status'=>'error','message'=>'All Fields Are Required']);
             }
             else if($cPassword == $password)
             {
@@ -198,5 +198,51 @@ function checkToken($conn)
     {
         echo json_encode(['status'=>'error','tokenStatus'=>'noToken','message'=>"Token Is Required!"]);
     }
+}
+
+// Login Api
+function login($conn)
+{
+    extract($_POST);
+    if(empty($email)||empty($password))
+    {
+        echo json_encode(['status'=>'error','message'=>'All Fields Are Required!']);
+    }
+    else
+    {
+        $readEmail = mysqli_query($conn ,"SELECT * FROM users WHERE email ='$email'");
+        if($readEmail && mysqli_num_rows($readEmail)>0)
+        {
+            $readEmailV=mysqli_query($conn , "SELECT * FROM users WHERE email ='$email' AND token='Confirmed'");
+            if($readEmailV && mysqli_num_rows($readEmailV)>0)
+            {
+               $read= mysqli_query($conn , "SELECT * FROM users WHERE email = '$email' AND user_password ='$password'");
+               if($read && mysqli_num_rows($read)>0)
+               {
+                $row = mysqli_fetch_assoc($read);
+                $userEdu=$row['eduType'];
+                echo json_encode(['status'=>'success','message'=>'SuccessFully LogedIn','eduType'=>"$userEdu"]);
+               } 
+               else
+               {
+                echo json_encode(['status'=>'error','message'=>'Password Is Incorrect!']);
+               }
+            }
+            else
+            {
+                echo json_encode(['status'=>'error','message'=>'Please Confirm Your Email Address!']);
+            }
+        }
+        else
+        {
+            echo json_encode(['status'=>'error','message'=>'Email Is Not Valid!']);
+        }
+    }
+}
+
+// Edu Type Api
+function eduType()
+{
+    
 }
 ?>

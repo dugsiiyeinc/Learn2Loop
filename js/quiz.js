@@ -1,36 +1,14 @@
+let Status=localStorage.getItem("status");
+if(Status)
+{
 
-// Api Getting Type Of user Edu
-let getEdu=async()=>
-{
-let api = "apis/api.php";
-let data = 
-{
-    method:"POST",
-    body:{'action':'eduType'},
-    dataType:"json",
-    contentType:false,
-    processData:false
 }
-try
+else
 {
-let response = await fetch(api,data);
-let jsonRes = response.json();
-if(jsonRes.status=="success")
-{
-    
-}
-else if(jsonRes.status=="error")
-{
-    console.log(jsonRes.message);
-}
-}
-catch(error)
-{
-    console.error(error);
-}
+    window.location.href="login.html";
 }
 
-let questionType = "js";  // Change this to 'css', 'js', or 'php' to get questions of that type
+let questionType = localStorage.getItem("eduType");  // Change this to 'css', 'js', or 'php' to get questions of that type
 
 const questionBank = {
     html: [
