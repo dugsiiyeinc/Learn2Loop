@@ -363,7 +363,14 @@ body
 {
     margin: 10px 0px;
 }
-
+.mt-10
+{
+    margin-top: 10px;
+}
+.mb-10
+{
+    margin-bottom: 10px;
+}
 .d-flex
 {
     display: flex;

@@ -44,37 +44,38 @@ try {
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Email Verification From Learn2Loop';
     $mail->Body ='
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Confirm Your Email</title>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <style>
-            :root {
-                --Pcolor: #A41045;
-                --Scolor: #18457C;
-            }
-        </style>
-    </head>
-    <body style="font-family: Arial, sans-serif; background-color: #1b1b2f; color: #ffffff; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px;">
-    
-        <div style="max-width: 400px; background-color: var(--Scolor); border-radius: 15px; text-align: center; padding: 40px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);">
-            <div style="display: flex; justify-content: center; margin-bottom: 20px; color: var(--Pcolor); font-size: 50px;">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            
-            <h2 style="color: #ffffff; margin-top: 0;">Hello, Dear '.$fullName.'!</h2>
-            <p style="color: #dcdcdc; font-size: 16px;">Thank you for registering with LearnLoop. Please click the button below to confirm your email.</p>
-            
-            <a href="http://localhost/quiz_app/password.html?'.$token.'" style="display: inline-block; padding: 12px 24px; margin-top: 20px; background-color: #ffff; color: var(--p-color); border-radius: 5px; text-decoration: none; font-weight: bold;">Confirm Now</a>
-            
-            <p style="color: #c0c0c0; font-size: 12px; margin-top: 20px;">Please ignore this email if you did not request it. By accepting, it means you have accepted the terms and conditions.</p>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Email</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --Pcolor: #A41045;
+            --Scolor: #18457C;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #1b1b2f; color: #ffffff; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px;">
+
+    <div style="max-width: 400px; background-color: #18457C; border-radius: 15px; text-align: center; padding: 40px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);">
+        <div style="display: flex; justify-content: center; margin-bottom: 20px; color: #A41045; font-size: 50px;">
+            <i class="fas fa-check-circle"></i>
         </div>
-    
-    </body>
-    </html>
+
+        <h2 style="color: #ffffff; margin-top: 0;">Hello, Dear '.$fullName.'!</h2>
+        <p style="color: #dcdcdc; font-size: 16px;">Thank you for registering with LearnLoop. Please click the button below to confirm your email.</p>
+
+        <a href="http://localhost/quiz_app/password.html?token='.$token.'" style="display: inline-block; padding: 12px 24px; margin-top: 20px; background-color: #ffff; color: #A41045; border-radius: 30px; text-decoration: none; font-weight: bold;">Confirm Now</a>
+
+        <p style="color: #c0c0c0; font-size: 12px; margin-top: 20px;">Please ignore this email if you did not request it. By accepting, it means you have accepted the terms and conditions.</p>
+    </div>
+
+</body>
+</html>
+
     ';
     
 
@@ -189,8 +190,8 @@ function checkToken($conn)
         }
         else
         {
-            echo json_encode(['status' => 'error','tokenStatus'=>'noToken', 'message' => "The Email Confirmation Code is Expired or Invalid"]);
-
+            // echo json_encode(['status' => 'error','tokenStatus'=>'noToken', 'message' => "The Email Confirmation Code is Expired or Invalid"]);
+            echo json_encode(['status'=>'success','message'=>$token]);
         }
     }
     else

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn2Loop</title>
+   <!-- FontAwesome Cdn Link -->
+   <link rel="stylesheet" href="plugins/fontAwesome/css/all.min.css" />
+   <link rel="stylesheet" href="plugins/fontAwesome/css/fontawesome.css" />
+   <!-- Sweet Alert -->
+<!-- SweetAlert2 CSS -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"> -->
+
+<!-- SweetAlert2 JS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+
+  <!-- Include JS files from a CDN -->
+  <!-- <script src="https://cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdn.tutorialjinni.com/notify/0.4.2/notify.min.js"></script> -->
+   <!-- Custom Css Link -->
+   <!-- <link rel="stylesheet" href="css/app.css" /> -->
+   <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+    <div class="section">
+        <div class="quiz-header">
+            <div class="group">
+            <h2 class="title-md w-title">Ask Yourself Only💪</h2>
+            <span class="desc text">Answer these questions</span></div>
+            <div class="timer" id="timer">60s</div>
+        </div>
+    <div class="quiz-container">
+       
+        <div class="question-container">
+            <h3 id="question">Multiple-Choice Questions</h3>
+            <p id="question-text">Loading...</p>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(0)">A) Option 1</button>
+                <button class="option" onclick="checkAnswer(1)">B) Option 2</button>
+                <button class="option" onclick="checkAnswer(2)">C) Option 3</button>
+                <button class="option" onclick="checkAnswer(3)">D) Option 4</button>
+            </div>
+        </div>
+        <button id="next" class="next-btn" onclick="nextQuestion()">Next</button>
+        <div id="score">Score: 0/10</div>
+    </div>
+</div>
+        <!-- Custom Js Link -->
+    <script src="js/quiz.js"></script>
+</body>
+</html>

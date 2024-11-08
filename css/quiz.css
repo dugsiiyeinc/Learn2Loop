@@ -1,0 +1,209 @@
+
+/* Importing Font Family */
+/* Poppins */
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+/* INter */
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_Bold.ttf")format("truetype");
+font-weight: 700;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_ExtraBold.ttf")format("truetype");
+font-weight: 800;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_Medium.ttf")format("truetype");
+font-weight: 400;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_SemiBold.ttf")format("truetype");
+font-weight: 600;
+}
+@font-face
+{
+font-family: "inter";
+src: url("../fonts/inter/Inter_ExtraLight.ttf")format("truetype");
+font-weight: 300;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'inter','poppins',sans-serif;
+}
+/* Color Root */
+:root
+{
+    --Pcolor:#A41045;
+    --Scolor:#18457C;
+    --Bgcolor:#0A0C10;
+    --Tcolor:#D8D8D8;
+    --Bgshape:url(../images/bgshape.png);
+}
+/* Body */
+body
+{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--Bgcolor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+}
+.section
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: var(--Bgshape);
+    background-size: cover;
+    background-position:center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.quiz-container {
+    background-color: rgba(255,255,255,0.10);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    height: 70vh;
+    text-align: center;
+}
+.quiz-header
+{
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    padding: 20px 0px;
+    align-items: center;
+}
+.timer
+{
+    background-color: var(--Scolor);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #fff;
+}
+.quiz-header h2 {
+    margin: 0;
+}
+
+.w-title
+{
+    color: #fff;
+}
+.p-title
+{
+    color: var(--Pcolor);
+}
+.s-title
+{
+    color: var(--Scolor);
+}
+.title-lg
+{
+    font-size: 50px;
+}
+.title-md
+{
+    font-size: 40px;
+}
+.title-sm
+{
+    font-size: 20px;
+}
+.text
+{
+    color: var(--Tcolor);
+}
+
+.thin
+{
+    font-weight: 300;
+}
+
+
+.question-container {
+    margin-top: 20px;
+    text-align: start;
+    padding: 10px;
+}
+
+.question-container h3
+{
+    margin-left: 10px;
+    margin-top: -20px;
+    color: #D8D8D8;
+    font-size: 30px;
+}
+#question-text
+{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.options button {
+    background-color: rgba(255,255,255,0.10);
+    border: none;
+    color: white;
+    padding: 15px ;
+    margin: 5px;
+    width: 100%;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.option.correct {
+    background-color: #28a745;
+}
+
+.option.wrong {
+    background-color: #dc3545;
+}
+
+.next-btn {
+    background-color: #ff0077;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#score {
+    margin-top: 10px;
+    font-size: 18px;
+}
