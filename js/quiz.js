@@ -1,3 +1,10 @@
+// Logout
+document.querySelector(".logout").addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.clear(); 
+    window.location.reload();
+});
+
 let Status=localStorage.getItem("status");
 if(Status)
 {
@@ -117,7 +124,23 @@ function nextQuestion() {
         loadQuestion(); // Load the next question
     } else {
         clearInterval(timer); // Stop the timer at the end
-        alert("Quiz Over!");
+       // Prompt the user to choose a language
+let PromptText = prompt("Next Language? Write html, css, js, or php");
+
+// Remove any previous 'eduType' value from localStorage
+localStorage.removeItem("eduType");
+
+// Validate the input to ensure it's one of the specified options
+if (PromptText === "html" || PromptText === "css" || PromptText === "js" || PromptText === "php") {
+    // Store the valid choice in localStorage
+    localStorage.setItem("eduType", PromptText);
+    console.log("Choice saved:", PromptText);
+} else {
+    // Inform the user that the input is invalid
+    $.notify( response.message,"Invalid input. Please enter 'html', 'css', 'js', or 'php'.");
+
+}
+
     }
 }
 
