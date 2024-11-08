@@ -84,7 +84,7 @@ registerForm.addEventListener("submit",async (e)=>
             formData.append("action","Registration");
             formData.append("Registration","RegPass3344");
             // Api Request
-            let registerApi = "apis/api.php";
+            let registerApi = "https://xirfadeeye.com/apis/api.php";
             let options = 
             {
                 method:"POST",

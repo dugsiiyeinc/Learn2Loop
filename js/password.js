@@ -32,7 +32,7 @@ regForm.addEventListener("submit", async (e)=>
     let formData = new FormData(regForm);
     formData.append('token',token);
     formData.append('action','checkToken');
-    let api ="apis/api.php";
+    let api ="https://xirfadeeye.com/apis/api.php";
     let data =
     {
         method:'POST',

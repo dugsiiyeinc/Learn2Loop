@@ -29,7 +29,7 @@ document.querySelector("#loginBtn").innerHTML="<img width='16px' src='images/loa
 let formData = new FormData(loginForm);
 formData.append('action','login');
 // Api
-let api = "apis/api.php";
+let api = "https://xirfadeeye.com/apis/api.php";
 let body =
 {
 method :"POST",
