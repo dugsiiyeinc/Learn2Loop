@@ -154,4 +154,48 @@ function Registration ($conn)
         echo json_encode(['status'=>'error','message'=>"Sorry You Don't Have Permission to Register To Get Permission Send The Register Password"]);
     }
 }
+
+
+
+// Cheack Token  And Create Password Api 
+function checkToken($conn)
+{
+    if(isset($_POST['token']))
+    {
+        extract($_POST);
+        // Cheack If Token Is Valid
+        $readToken = mysqli_query($conn , "SELECT * FROM users WHERE token = '$token'");
+        if($readToken && mysqli_num_rows($readToken)>0)
+        {
+            // Password Form Validation
+            if(empty($password)||empty($cPassword))
+            {
+                echo json_encode(['status'=>'error','message'=>'Please Submit A Complate Form']);
+            }
+            else if($cPassword == $password)
+            {
+                $updateToken = mysqli_query($conn,"UPDATE users SET token = 'Confirmed' ,user_password ='$password' WHERE token = '$token'");
+                if($updateToken)
+                {
+                   
+                        echo json_encode(['status'=>'success','message'=>'SuccessFully Created']);
+                    
+                }
+            }
+            else
+            {
+                echo json_encode(['status'=>'error','message'=>'Passwords Are Not Match']);
+            }
+        }
+        else
+        {
+            echo json_encode(['status' => 'error','tokenStatus'=>'noToken', 'message' => "The Email Confirmation Code is Expired or Invalid"]);
+
+        }
+    }
+    else
+    {
+        echo json_encode(['status'=>'error','tokenStatus'=>'noToken','message'=>"Token Is Required!"]);
+    }
+}
 ?>

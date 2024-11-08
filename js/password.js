@@ -18,3 +18,67 @@
      }
  });
 
+// Form Submit And  Sendig The Token Into Api Function
+
+let regForm = document.getElementById("RegisterForm");
+
+regForm.addEventListener("submit", async (e)=>
+    {
+        e.preventDefault();
+
+    //  Geting The Token
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+    let formData = new FormData(regForm);
+    formData.append('token',token);
+    formData.append('action','checkToken');
+    let api ="apis/api.php";
+    let data =
+    {
+        method:'POST',
+        body:formData,
+        dataType:'json',
+        contentType:false,
+        proccessData:false
+    };
+    try
+    {
+        let Getresponse = await fetch(api,data);
+        let response = await Getresponse.json();
+        if(response.status == "success")
+        {
+            Swal.fire({
+                title: "Success",
+                icon: "success",
+                text: response.message,
+                // timer: 2000,  // Set a 1-second timer
+                // showConfirmButton: false
+            }).then(() => {
+                // Redirect to index.html after the alert closes
+                window.location.href = "login.html";
+            });
+        }
+        else if(response.status == "error")
+        {
+            $.notify( response.message,"error");
+            if(response.tokenStatus == "noToken")
+            {
+                Swal.fire({
+                    title: "error",
+                    icon: "error",
+                    text: response.message,
+                    timer: 2000,  // Set a 1-second timer
+                    showConfirmButton: false
+                }).then(() => {
+                    // Redirect to index.html after the alert closes
+                    window.location.href = "index.html";
+                });
+                
+            }
+        }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+})
