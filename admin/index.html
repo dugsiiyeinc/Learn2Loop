@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <!-- FontAwesome Cdn Link -->
+     <link rel="stylesheet" href="plugins/fontAwesome/css/all.min.css" />
+     <link rel="stylesheet" href="plugins/fontAwesome/css/fontawesome.css" />
+     <!-- Sweet Alert -->
+ <!-- SweetAlert2 CSS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+ 
+ <!-- SweetAlert2 JS -->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
+    <!-- Include JS files from a CDN -->
+    <script src="https://cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.tutorialjinni.com/notify/0.4.2/notify.min.js"></script>
+     <!-- Custom Css Link -->
+     <link rel="stylesheet" href="css/app.css" />
+    <style>
+        :root {
+            --Pcolor: #A41045;
+            --Scolor: #18457C;
+            --Bgcolor: #0A0C10;
+            --Tcolor: #D8D8D8;
+        }
+    </style>
+</head>
+<body class="bg-[var(--Bgcolor)] text-[var(--Tcolor)] font-sans p-6">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-6" style="color: var(--Pcolor);">Question Notes</h2>
+        
+        <!-- Button to open the modal -->
+        <button onclick="openModal()" class="bg-[var(--Pcolor)] hover:bg-[#870035] text-white font-bold py-2 px-4 rounded mb-6">
+            Add New Question
+        </button>
+<button class="btn bg-[var(--Scolor)] text-white px-[20px] py-[10px] rounded fixed" id="logOutBtn" onclick="logOut();" style="right: 40px !important; top: 50px; cursor: pointer;">Log Out</button>
+        <!-- Grid layout for notes -->
+        <div id="questionGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Dynamic question cards will be added here -->
+        </div>
+    </div>
+
+    <!-- Modal overlay and form -->
+    <div  id="questionModal" class="fixed inset-0 bg-black bg-opacity-50 hidden d-flex items-center justify-center">
+        <div class="bg-[var(--Scolor)] p-6 rounded-lg shadow-lg max-w-lg w-full relative">
+            <span onclick="closeModal()" class="absolute top-2 right-2 cursor-pointer text-white text-xl">&times;</span>
+            
+            <h2 id="modalTitle" class="text-2xl font-semibold mb-4" style="color: var(--Pcolor);">Add New Question</h2>
+            
+            <form id="questionForm">
+                <!-- Question Text -->
+                <label class="block mb-2 text-sm font-medium">Question:</label>
+                <input type="text" id="questionText" required class="w-full p-2 mb-4 text-[var(--Bgcolor)] bg-[var(--Tcolor)] rounded">
+
+                <!-- Question Type Dropdown -->
+                <label class="block mb-2 text-sm font-medium">Question Type:</label>
+                <select id="questionType" required class="w-full p-2 mb-4 text-[var(--Bgcolor)] bg-[var(--Tcolor)] rounded">
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="PHP">PHP</option>
+                </select>
+
+                <!-- Options for the Question -->
+                <label class="block mb-2 text-sm font-medium">Options (mark correct answer):</label>
+                <div class="flex items-center mb-2">
+                    <input type="radio" name='correct' id="correct1" class="mr-2">
+                    <input type="text" placeholder="Option 1" id="option1" required class="w-full p-2 text-[var(--Bgcolor)] bg-[var(--Tcolor)] rounded">
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" name='correct' id="correct2" class="mr-2">
+                    <input type="text" placeholder="Option 2" id="option2" required class="w-full p-2 text-[var(--Bgcolor)] bg-[var(--Tcolor)] rounded">
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" name='correct' id="correct3" class="mr-2">
+                    <input type="text" placeholder="Option 3" id="option3" class="w-full p-2 text-[var(--Bgcolor)] bg-[var(--Tcolor)] rounded">
+                </div>
+                <div class="flex items-center mb-4">
+                    <input type="radio" name='correct' id="correct4" class="mr-2">
+                    <input type="text" placeholder="Option 4" id="option4" class="w-full p-2 text-[var(--Bgcolor)] bg-[var(--Tcolor)] rounded">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="bg-[var(--Pcolor)] hover:bg-[#870035] text-white font-bold py-2 px-4 rounded w-full">
+                    Save Question
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let logOut=()=>
+        {
+    
+            localStorage.removeItem("adminSession");
+            window.location.reload();
+        }
+        window.onload=function()
+        {
+            let adminSession = localStorage.getItem('adminSession');
+            if(!adminSession)
+            {
+                window.location.href ='adminlogin.html';
+            }
+
+        }
+        const questionGrid = document.getElementById("questionGrid");
+        const questionForm = document.getElementById("questionForm");
+        const questionModal = document.getElementById("questionModal");
+        const modalTitle = document.getElementById("modalTitle");
+
+        let questions = JSON.parse(localStorage.getItem("questions")) || [];
+        let editingIndex = -1;
+
+        function openModal(isEdit = false, index = -1) {
+            questionModal.classList.remove("hidden");
+            questionModal.style.display="flex";
+            modalTitle.innerText = isEdit ? "Edit Question" : "Add New Question";
+            if (isEdit) {
+                editingIndex = index;
+                loadQuestionData(questions[index]);
+            }
+        }
+
+        function closeModal() {
+            questionModal.classList.add("hidden");
+            questionModal.style.display="none";
+            questionForm.reset();
+            editingIndex = -1;
+        }
+
+        function saveQuestions() {
+            localStorage.setItem("questions", JSON.stringify(questions));
+            renderQuestions();
+        }
+
+        function renderQuestions() {
+            questionGrid.innerHTML = "";
+            questions.forEach((question, index) => {
+                const questionCard = document.createElement("div");
+                questionCard.classList.add("bg-[var(--Scolor)]", "p-4", "rounded-lg", "shadow-md", "text-[var(--Tcolor)]");
+
+                questionCard.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold">${question.type}</span>
+                        <div>
+                            <button onclick="editQuestion(${index})" class="text-blue-400 hover:text-blue-600 mr-2">✏️</button>
+                            <button onclick="deleteQuestion(${index})" class="text-red-400 hover:text-red-600">&times;</button>
+                        </div>
+                    </div>
+                    <div class="mt-2 mb-2 font-bold">${question.question}</div>
+                    <ul class="text-sm list-disc ml-4">
+                        ${question.options.map((option, i) => `
+                            <li${question.correctAnswer === i ? ' class="font-semibold text-green-400"' : ''}>${option}</li>
+                        `).join('')}
+                    </ul>
+                `;
+                
+                questionGrid.appendChild(questionCard);
+            });
+        }
+
+        function loadQuestionData(question) {
+            document.getElementById("questionText").value = question.question;
+            document.getElementById("questionType").value = question.type;
+            document.getElementById("option1").value = question.options[0] || "";
+            document.getElementById("option2").value = question.options[1] || "";
+            document.getElementById("option3").value = question.options[2] || "";
+            document.getElementById("option4").value = question.options[3] || "";
+            document.getElementById(`correct${question.correctAnswer + 1}`).checked = true;
+        }
+
+        questionForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const questionText = document.getElementById("questionText").value.trim();
+            const questionType = document.getElementById("questionType").value;
+            const options = [
+                document.getElementById("option1").value.trim(),
+                document.getElementById("option2").value.trim(),
+                document.getElementById("option3").value.trim(),
+                document.getElementById("option4").value.trim()
+            ].filter(option => option);
+
+            const correctAnswer = [1, 2, 3, 4].find(i => document.getElementById(`correct${i}`).checked) - 1;
+            if (correctAnswer === undefined) {
+                $.notify("Please mark a correct answer!", "error");
+                return;
+            }
+
+            if (editingIndex === -1 && questions.some(q => q.question.toLowerCase() === questionText.toLowerCase())) {
+                $.notify("This question already exists!", "error");
+                return;
+            }
+
+            const questionData = { question: questionText, type: questionType, options, correctAnswer };
+            if (editingIndex >= 0) {
+                questions[editingIndex] = questionData;
+                $.notify("Question updated!", "success");
+            } else {
+                questions.push(questionData);
+                $.notify("Question added!", "success");
+            }
+
+            saveQuestions();
+            closeModal();
+        });
+
+        function editQuestion(index) {
+            openModal(true, index);
+        }
+
+        function deleteQuestion(index) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    questions.splice(index, 1);
+                    saveQuestions();
+                    Swal.fire('Deleted!', 'Your question has been deleted.', 'success');
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", renderQuestions);
+    </script>
+</body>
+</html>

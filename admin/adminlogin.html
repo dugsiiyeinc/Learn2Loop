@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn2Loop</title>
+    <!-- FontAwesome Cdn Link -->
+    <link rel="stylesheet" href="../plugins/fontAwesome/css/all.min.css" />
+    <link rel="stylesheet" href="../plugins/fontAwesome/css/fontawesome.css" />
+    <!-- Sweet Alert -->
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <!-- Include JS files from a CDN -->
+   <script src="https://cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+   <script src="https://cdn.tutorialjinni.com/notify/0.4.2/notify.min.js"></script>
+    <!-- Custom Css Link -->
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="section d-flex items-center j-center">
+        <div style="height: 50vh; " class="merror p-20 round-10">
+            <h1 class="title-sm mb-10">
+                Login Your Account!            </h1>
+            <form id="RegisterForm" class="loginForm">
+                <input class="btn merror p-10-20" name="email" id="email" type="text" placeholder="Please Enter Your Email">
+
+                  <div  id="password-input">
+                      <i class="fas fa-eye"></i>
+                  <input class="btn merror p-10-20" name="password" id="password" type="password" placeholder="Enter Your Password">
+              </div>
+              <button  style="background-color: var(--Scolor) !important; padding: 15px 20px !important;" type="submit" class="btn merror" id="loginBtn">Send Me Back To My Account</button>   
+              <p style="margin-top: 10px;" class="disc text">Forget Password? &nbsp;<a style="color: #fff; font-weight: bold;" href="login.html">Click Here</a></p> 
+            </form>
+          </div>
+    </div>
+    <!-- Custom Js Link -->
+    <script>
+        let loginForm = document.querySelector(".loginForm");
+        loginForm.addEventListener("submit",(e)=>
+        {
+            e.preventDefault();
+            let emailInput = loginForm.querySelector("#email");
+            let passwordInput = loginForm.querySelector("#password");
+            if(emailInput.value == "" && passwordInput.value == "")
+            {
+                $.notify("Please Enter Your Email And Password","error");
+            }
+            else if(emailInput.value == "")
+            {
+                $.notify("Please Enter Your Email","error");
+            }
+            else if(passwordInput.value == "")
+            {
+                $.notify("Please Enter Your Password","error");
+            }
+            else
+            {
+                if(emailInput.value.includes("@") && emailInput.value.includes("."))
+            {
+                localStorage.setItem("email", "taamir.mm@gmail.com");
+                localStorage.setItem("password","123456789");
+                if(localStorage.getItem("email")==emailInput.value)
+                        {
+                            if(localStorage.getItem("password")==passwordInput.value)
+                            {
+                               localStorage.removeItem("email"); 
+                               localStorage.removeItem("password"); 
+                               localStorage.setItem("adminSession","adminSession");
+                               window.location.href="index.html";
+                            }
+                            else
+                            {
+                                $.notify(`invalid admin Password`,"error");
+                            }
+                        }
+                        else
+                        {
+                            $.notify(`invalid admin email`,"error");
+                        }
+            }   
+            else
+            {
+                $.notify("Please Add Your Email Address @example.com","error");
+            }            
+        }
+        });
+
+         // Password Hide And Show Logic
+
+ let passwordInput = document.querySelector("#password-input input");
+
+let passwordBtn = document.querySelector("#password-input i");
+
+passwordBtn.addEventListener("click",function(e)
+{
+    if(passwordInput.type == "password")
+    {
+       passwordBtn.classList.replace("fa-eye","fa-eye-slash");
+       passwordInput.type ="text";
+    }
+    else if(passwordInput.type == "text")
+    {
+       passwordBtn.classList.replace("fa-eye-slash","fa-eye");
+       passwordInput.type ="password";
+    }
+});
+
+    </script>
+  </body>
+</html>
+
+
