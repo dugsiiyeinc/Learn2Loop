@@ -11,6 +11,7 @@ This app allows developers to take quizzes on different topics related to web de
 - **HTML**: For structuring the app.
 - **CSS**: For styling the app and making it responsive.
 - **JavaScript**: For interactive functionalities and logic.
+- **tailwind css**:admin part.
 - **APIs**: To fetch quiz data and handle user interactions.
 
 ---
