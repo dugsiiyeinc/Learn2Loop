@@ -65,7 +65,7 @@ My Mentor and Colleagues: For all the support and guidance throughout the projec
 If you have any questions or suggestions, feel free to contact me:
 
 Email: taamir.mm@gmail.com
-GitHub: Abuubakar Mohamed
+GitHub: [d-i-v7](https://github.com/d-i-v7);
 Thanks for checking out Learn to Loop! Happy coding and good luck with your learning journey! 💻✨
 
 vbnet
