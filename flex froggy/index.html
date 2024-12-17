@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Challenge Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-wrapper">
+    <header>
+      <h1>🎯 Flexbox Challenge</h1>
+      <p>Use CSS Flexbox to solve the challenges!</p>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div id="progress-bar">0 / <span id="levelsNum"></span> Levels</div>
+    </div>
+
+    <!-- Game Area -->
+    <div id="game-area">
+      <div class="instructions">
+        <p id="challenge-text">Level 1: Use <strong>justify-content</strong> to move the red box to the right.</p>
+      </div>
+
+      <!-- Flex Container -->
+      <div id="flex-container">
+        <div class="box" id="red-box"></div>
+      </div>
+    </div>
+
+    <!-- Code Editor -->
+    <div class="code-editor">
+      <label for="css-input">Write your CSS here:</label>
+      <textarea id="css-input" placeholder="justify-content: flex-end;"></textarea>
+      <button onclick="checkSolution()">Run Code</button>
+      <p id="feedback"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+:root {
+    --Pcolor: #A41045;
+    --Scolor: #18457C;
+    --Bgcolor: #0A0C10;
+    --Tcolor: #D8D8D8;
+    --Bgshape: url(../images/bgshape.png);
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--Bgcolor);
+    background-image: url("../images/bgshape.png");
+    color: var(--Tcolor);
+    text-align: center;
+    background-position: center;
+    background-size:cover;
+  }
+.admin-wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    /* background-color: var(--Bgcolor); */
+    background-image: url("../images/bgshape.png");
+    color: var(--Tcolor);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .admin-form input {
+    padding: 10px;
+    border: 1px solid var(--Scolor);
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: var(--Pcolor);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #891135;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  

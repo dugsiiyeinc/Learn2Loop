@@ -55,7 +55,7 @@ if(response.status=="success")
         showConfirmButton: false
     }).then(() => {
         // Redirect to index.html after the alert closes
-        window.location.href = "quiz.html";
+        window.location.href = "options.html";
     });
     localStorage.setItem("status",true);
     localStorage.setItem("eduType",response.eduType);
