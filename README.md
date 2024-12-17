@@ -21,24 +21,30 @@ This app allows developers to take quizzes on different topics related to web de
 - **Score Tracking**: Check your scores and improve your results with each quiz attempt.  
 - **Leaderboard**: Compete with other developers and aim for the top spot.
 
+
+- **Some Of Website Preview**:  
+-   ![Flex Froggy Challenge](images/wel.png)
+ - ![Flex Froggy Challenge](images/account.png)
+ - ![Flex Froggy Challenge](images/quiz-read.png)
+
 ### Challenges Section
 We’ve added a new **Challenges** section to the app to make learning even more fun! These challenges test your practical skills and help you learn by doing. Check out the following challenges:
 
 - **Flex Froggy Challenge**:  
   Challenge yourself by using **Flexbox** to move frogs into the correct position.  
-  ![Flex Froggy Challenge](link_to_example_image)
+  ![Flex Froggy Challenge](images/flex-read.png)
 
 - **CSS Color Code Challenge**:  
   Match the correct color code by applying CSS.  
-  ![CSS Color Code Challenge](link_to_example_image)
+  ![CSS Color Code Challenge](images/comingsoon.png)
 
 - **Grid Box Challenge**:  
   Use **CSS Grid** to place elements within a grid layout.  
-  ![Grid Box Challenge](link_to_example_image)
+  ![Grid Box Challenge](images/comingsoon.png)
 
 - **CSS Position Challenge**:  
   Experiment with **CSS Positioning** techniques (absolute, relative, fixed, etc.).  
-  ![CSS Position Challenge](link_to_example_image)
+  ![CSS Position Challenge](images/comingsoon.png)
 
 ### Installation
 To run this project locally on your computer, follow these steps:
