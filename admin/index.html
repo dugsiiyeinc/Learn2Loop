@@ -6,8 +6,8 @@
     <title>Question Notes</title>
     <script src="https://cdn.tailwindcss.com"></script>
      <!-- FontAwesome Cdn Link -->
-     <link rel="stylesheet" href="plugins/fontAwesome/css/all.min.css" />
-     <link rel="stylesheet" href="plugins/fontAwesome/css/fontawesome.css" />
+     <link rel="stylesheet" href="../plugins/fontAwesome/css/all.min.css" />
+     <link rel="stylesheet" href="../plugins/fontAwesome/css/fontawesome.css" />
      <!-- Sweet Alert -->
  <!-- SweetAlert2 CSS -->
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -98,6 +98,46 @@
             </form>
         </div>
     </div>
+<div class="nav-container">
+<div class="nav">
+    <li><a class="active" href="index.html"><i class="fas fa-question"></i> Quiz</a></li>
+    <li><a  href="frogy.html"><i class="fas fa-frog"></i> Flex Froggy</a></li>
+</div></div>
+<style>
+    .nav-container
+    {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav
+    {
+       
+        background-color: #fff;
+        border-radius: 40px;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav  li
+    {
+        list-style: none;
+        margin: 0px 30px;
+    }
+    .nav  li a
+    {
+        color: #18457C !important;
+        font-weight: bold;
+    }
+    .nav  li a.active
+    {
+        color: #A41045 !important;
+    }
+</style>
 
   <script src="app.js"></script>
 </body>

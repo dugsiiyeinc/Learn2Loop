@@ -1,3 +1,19 @@
+let logOut=()=>
+  {
+
+      localStorage.removeItem("adminSession");
+      window.location.reload();
+  }
+  window.onload=function()
+  {
+      let adminSession = localStorage.getItem('adminSession');
+      if(!adminSession)
+      {
+          window.location.href ='adminlogin.html';
+      }
+
+  }
+
 // game.js
 const colors = [
     { color: "#FF5733", code: "#FF5733" },

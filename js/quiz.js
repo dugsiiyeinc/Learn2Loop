@@ -17,7 +17,7 @@ else
 
 let questionType = localStorage.getItem("eduType");  // Change this to 'css', 'js', or 'php' to get questions of that type
 
-const questionBank = {
+const questionBank = localStorage.getItem("questionBank") || {
     html: [
         { question: "What does HTML stand for?", options: ["HyperText Marking Language", "HyperText Markup Language", "Hyper Tool Markup Language", "Hyper Transfer Markup Language"], answer: 1 },
         { question: "Which HTML tag is used to define an internal style sheet?", options: ["<css>", "<style>", "<script>", "<stylesheet>"], answer: 1 },

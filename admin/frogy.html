@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel - Add Challenges</title>
   <link rel="stylesheet" href="admin.css">
+       <!-- FontAwesome Cdn Link -->
+       <link rel="stylesheet" href="../plugins/fontAwesome/css/all.min.css" />
+       <link rel="stylesheet" href="../plugins/fontAwesome/css/fontawesome.css" />
 </head>
 <body>
   <div class="admin-wrapper">
@@ -28,6 +31,49 @@
     <h2>📋 Current Challenges</h2>
     <ul id="challenge-list"></ul>
   </div>
+  <button type="button" class="btn bg-[var(--Scolor)] text-white px-[20px] py-[10px] rounded fixed" id="logOutBtn" onclick="logOut();" style="position: fixed; right: 40px !important; top: 50px; cursor: pointer;">Log Out</button>
+
+  <div class="nav-container">
+    <div class="nav">
+        <li><a href="index.html"><i class="fas fa-question"></i> Quiz</a></li>
+        <li><a class="active" href="frogy.html"><i class="fas fa-frog"></i> Flex Froggy</a></li>
+    </div></div>
+    <style>
+        .nav-container
+        {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav
+        {
+           
+            background-color: #fff;
+            border-radius: 40px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav  li
+        {
+            list-style: none;
+            margin: 0px 30px;
+        }
+        .nav  li a
+        {
+            color: #18457C !important;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .nav  li a.active
+        {
+            color: #A41045 !important;
+        }
+    </style>
 
   <script src="admin.js"></script>
 </body>
